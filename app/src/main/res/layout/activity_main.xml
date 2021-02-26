@@ -79,4 +79,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/caduceus" />
 
+    <Button
+        android:id="@+id/button_SignUp"
+        android:layout_width="160dp"
+        android:layout_height="61dp"
+        android:text="Sign Up"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

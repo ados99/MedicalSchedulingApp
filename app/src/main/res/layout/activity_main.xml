@@ -59,6 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
+        android:gravity="center_horizontal"
         android:text="MED+ SCHEDULER"
         android:textAlignment="center"
         android:textColor="#000000"
@@ -66,8 +67,7 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment"
-        android:gravity="center_horizontal" />
+        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
 
     <ImageView
         android:id="@+id/image_Medical"
@@ -79,5 +79,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/caduceus" />
+
+    <Button
+        android:id="@+id/button_Map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Map"
+        app:backgroundTint="#c70472"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toStartOf="@+id/image_Medical"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/image_Medical"
+        app:layout_constraintTop_toBottomOf="@+id/button_MentalH" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

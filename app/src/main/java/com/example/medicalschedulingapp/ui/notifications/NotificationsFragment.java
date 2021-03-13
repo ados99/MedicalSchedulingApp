@@ -1,6 +1,7 @@
 package com.example.medicalschedulingapp.ui.notifications;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.medicalschedulingapp.R;
+import com.example.medicalschedulingapp.ui.dashboard.DashboardFragment;
 
 public class NotificationsFragment extends Fragment {
 
@@ -20,6 +22,7 @@ public class NotificationsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
+        Log.i(NotificationsFragment.class.getSimpleName(), "This is onCreateView() for Notifications Fragment.");
         notificationsViewModel =
                 new ViewModelProvider(this).get(NotificationsViewModel.class);
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);

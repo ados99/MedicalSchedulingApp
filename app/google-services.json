@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "64255225410",
+    "project_id": "medical-app-c4671",
+    "storage_bucket": "medical-app-c4671.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:64255225410:android:175c1411e2450896d987db",
+        "android_client_info": {
+          "package_name": "com.example.medicalschedulingapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "64255225410-h2cbrl4e2ha93jevmq6iu2qrgr7v7uqg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqHfhjP9ZwZ3xB-3CwwKG7xh3AWdM3YBw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "64255225410-h2cbrl4e2ha93jevmq6iu2qrgr7v7uqg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

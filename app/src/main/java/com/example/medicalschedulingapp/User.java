@@ -8,14 +8,16 @@ public class User {
     private String email;
     private LocalDate dateOfBirth;
     private String sex;
+    private String password;
     private ArrayList<Appointment> appointments;
 
-    public User(String firstName, String lastName, String email, LocalDate dob, String sex){
+    public User(String firstName, String lastName, String email, /*LocalDate dob,*/ String sex, String password){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.dateOfBirth = dob;
+        /*this.dateOfBirth = dob;*/
         this.sex = sex;
+        this.password = password;
         this.appointments = new ArrayList<Appointment>();
     }
 
@@ -57,5 +59,13 @@ public class User {
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

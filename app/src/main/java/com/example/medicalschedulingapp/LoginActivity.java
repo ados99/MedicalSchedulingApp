@@ -24,8 +24,8 @@ public class LoginActivity extends AppCompatActivity {
 
         loginHeader = findViewById(R.id.login_page_header);
         loginButton = findViewById(R.id.login_button);
-        mUsernameText = findViewById(R.id.editUsername);
-        mPasswordText = findViewById(R.id.editPassword);
+        mUsernameText = findViewById(R.id.loginEmail);
+        mPasswordText = findViewById(R.id.loginPassword);
         loginProgBar = findViewById(R.id.progressBar);
         fAuth = FirebaseAuth.getInstance();
         registerButton = findViewById(R.id.register_button);
@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                 fAuth.signInWithEmailAndPassword(username, password).addOnCompleteListener((task) -> {
                     if(task.isSuccessful()){
                         Toast.makeText(LoginActivity.this, "Signed in successfully", Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, EditUserActivity.class);
                         startActivity(intent);
                     }else{
                         Toast.makeText(LoginActivity.this, "Sign in failed", Toast.LENGTH_SHORT).show();

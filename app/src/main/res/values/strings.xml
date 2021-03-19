@@ -10,4 +10,10 @@
     <string name="register_page">Register</string>
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
+    <string name="submit_form">Submit</string>
+    <string name="edit_account_header">Edit Account Info</string>
+    <string name="delete_account_button">Delete Account</string>
+    <string name="greeting">Hello, </string>
+
+
 </resources>

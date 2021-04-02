@@ -48,6 +48,7 @@
         android:layout_width="152dp"
         android:layout_height="97dp"
         android:text="COVID-19"
+        android:onClick="covidClicked"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toStartOf="@+id/button_MentalH"
         app:layout_constraintHorizontal_bias="0.5"
@@ -76,8 +77,10 @@
         android:alpha=".1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         app:srcCompat="@drawable/caduceus" />
 
     <Button
@@ -88,8 +91,21 @@
         app:backgroundTint="#c70472"
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toStartOf="@+id/image_Medical"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toEndOf="@+id/image_Medical"
-        app:layout_constraintTop_toBottomOf="@+id/button_MentalH" />
+        app:layout_constraintTop_toBottomOf="@+id/button_MentalH"
+        app:layout_constraintVertical_bias="0.23" />
+
+    <Button
+        android:id="@+id/settingsButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="updateUserSettings"
+        android:text="User Settings"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_Map"
+        app:layout_constraintVertical_bias="0.12" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

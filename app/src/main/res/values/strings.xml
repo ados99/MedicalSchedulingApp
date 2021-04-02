@@ -14,6 +14,10 @@
     <string name="edit_account_header">Edit Account Info</string>
     <string name="delete_account_button">Delete Account</string>
     <string name="greeting">Hello, </string>
-
+    <string-array name="covid_array">
+        <item>EXPOSURE</item>
+        <item>WORK</item>
+        <item>TRAVEL</item>
+    </string-array>
 
 </resources>

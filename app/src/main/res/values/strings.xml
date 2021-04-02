@@ -13,7 +13,12 @@
     <string name="submit_form">Submit</string>
     <string name="edit_account_header">Edit Account Info</string>
     <string name="delete_account_button">Delete Account</string>
-    <string name="greeting">Hello, </string>
-
-
+    <string name="greeting">Hello,</string>
+    <string name="fName">First Name</string>
+    <string name="lName">Last Name</string>
+    <string-array name="sex_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>N/A</item>
+    </string-array>
 </resources>

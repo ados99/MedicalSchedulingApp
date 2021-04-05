@@ -92,4 +92,15 @@
         app:layout_constraintStart_toEndOf="@+id/image_Medical"
         app:layout_constraintTop_toBottomOf="@+id/button_MentalH" />
 
+    <Button
+        android:id="@+id/edit_user_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/edit_user"
+        app:layout_constraintBottom_toTopOf="@+id/nav_view"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_Map"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

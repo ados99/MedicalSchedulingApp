@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
@@ -45,6 +46,10 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
         rSexSpinner = v.findViewById(R.id.signup_sex_spinner);
         fAuth = FirebaseAuth.getInstance();
 
+        //Necessary for spinner to work correctly
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.sex_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        rSexSpinner.setAdapter(adapter);
 
         registerButton.setOnClickListener(this);
         return v;
@@ -56,6 +61,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
         String password = rPasswordText.getText().toString().trim();
         String fName = rFName.getText().toString().trim();
         String lName = rLName.getText().toString().trim();
+        String sex = rSexSpinner.getSelectedItem().toString().trim();
         if(TextUtils.isEmpty(username)){
             rUsernameText.setError("Need a username");
             return;
@@ -81,7 +87,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
         fAuth.createUserWithEmailAndPassword(username, password).addOnCompleteListener((task) -> {
             if(task.isSuccessful()){
                 Toast.makeText(getContext(), "Registered successfully", Toast.LENGTH_SHORT).show();
-                User newUser = new User(fName, lName, username, "tempsex", password);
+                User newUser = new User(fName, lName, username, sex, password);
                 dbUsers.child(fAuth.getUid()).setValue(newUser);
                 Intent intent = new Intent(getActivity(), LoginActivity.class);
                 startActivity(intent);

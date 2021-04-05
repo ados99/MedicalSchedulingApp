@@ -28,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
                 openMap();
             }
         });
+        Button editUserInfo = (Button) findViewById(R.id.edit_user_info);
+        editUserInfo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){openEditUser();}
+        });
+
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
@@ -42,6 +48,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openEditUser(){
+        Intent intent = new Intent(this, EditUserActivity.class);
+        startActivity(intent);
+    }
 
 
 }

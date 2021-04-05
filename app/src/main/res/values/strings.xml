@@ -16,6 +16,7 @@
     <string name="greeting">Hello,</string>
     <string name="fName">First Name</string>
     <string name="lName">Last Name</string>
+    <string name="edit_user">Edit User Info</string>
     <string-array name="sex_array">
         <item>Male</item>
         <item>Female</item>

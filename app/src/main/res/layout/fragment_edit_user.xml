@@ -33,13 +33,10 @@
             android:hint="Last Name"
             android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/editSex"
+        <Spinner
+            android:id="@+id/edit_sex_spinner"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:hint="Sex"
-            android:inputType="textPersonName" />
+            android:layout_height="38dp" />
 
         <EditText
             android:id="@+id/editEmail"
@@ -47,7 +44,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="Email"
-            android:inputType="textPersonName" />
+            android:inputType="textPersonName"
+            android:textIsSelectable="false" />
 
         <EditText
             android:id="@+id/editPassword"

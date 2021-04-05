@@ -7,8 +7,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -25,7 +27,8 @@ import com.google.firebase.database.FirebaseDatabase;
 public class EditUserFragment extends Fragment{
 
 
-    private EditText fNameText, lNameText, emailText, sexText, passwordText;
+    private EditText fNameText, lNameText, emailText, passwordText;
+    private Spinner editSex;
     private TextView header, greeting;
     private Button editInfoButton, deleteAccountButton;
     private FirebaseUser fUser = FirebaseAuth.getInstance().getCurrentUser();
@@ -42,12 +45,16 @@ public class EditUserFragment extends Fragment{
         fNameText = v.findViewById(R.id.editFirstName);
         lNameText = v.findViewById(R.id.editLastName);
         emailText = v.findViewById(R.id.editEmail);
-        sexText = v.findViewById(R.id.editSex);
+        editSex = v.findViewById(R.id.edit_sex_spinner);
         passwordText = v.findViewById(R.id.editPassword);
         header = v.findViewById(R.id.edit_account_header);
         greeting = v.findViewById(R.id.user_greeting);
         deleteAccountButton = v.findViewById(R.id.delete_account_button);
         editInfoButton = v.findViewById(R.id.edit_info_button);
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(), R.array.sex_array, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        editSex.setAdapter(adapter);
 
         dbUsers.child(fUser.getUid()).child("firstName").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
@@ -68,7 +75,7 @@ public class EditUserFragment extends Fragment{
                 String fName = fNameText.getText().toString().trim();
                 String lName = lNameText.getText().toString().trim();
                 String email = emailText.getText().toString().trim();
-                String sex = sexText.getText().toString().trim();
+                String sex = editSex.getSelectedItem().toString().trim();
                 String password = passwordText.getText().toString().trim();
 
                 fUser.updateEmail(email).addOnCompleteListener(new OnCompleteListener<Void>() {

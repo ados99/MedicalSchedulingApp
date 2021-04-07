@@ -1,4 +1,4 @@
-package com.example.medicalschedulingapp.ui;
+package com.example.medicalschedulingapp.user;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -9,8 +9,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.medicalschedulingapp.MainActivity;
 import com.example.medicalschedulingapp.R;
+import com.example.medicalschedulingapp.ui.home.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
@@ -22,12 +22,11 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
-
+        setContentView(R.layout.fragment_login);
         loginHeader = findViewById(R.id.login_page_header);
         loginButton = findViewById(R.id.login_button);
-        //mUsernameText = findViewById(R.id.editUsername);
-        //mPasswordText = findViewById(R.id.editPassword);
+        mUsernameText = findViewById(R.id.loginEmail);
+        mPasswordText = findViewById(R.id.loginPassword);
         loginProgBar = findViewById(R.id.progressBar);
         fAuth = FirebaseAuth.getInstance();
         registerButton = findViewById(R.id.register_button);

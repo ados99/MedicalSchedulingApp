@@ -13,11 +13,14 @@
     <string name="submit_form">Submit</string>
     <string name="edit_account_header">Edit Account Info</string>
     <string name="delete_account_button">Delete Account</string>
-    <string name="greeting">Hello, </string>
-    <string-array name="covid_array">
-        <item>EXPOSURE</item>
-        <item>WORK</item>
-        <item>TRAVEL</item>
+    <string name="greeting">Hello,</string>
+    <string name="fName">First Name</string>
+    <string name="lName">Last Name</string>
+    <string name="edit_user">Edit User Info</string>
+    <string-array name="sex_array">
+        <item>Male</item>
+        <item>Female</item>
+        <item>N/A</item>
     </string-array>
-
+    <string name="title"> <font color='@color/purple_500'>MED+</font> SCHEDULER</string>
 </resources>

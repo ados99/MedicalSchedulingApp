@@ -1,4 +1,4 @@
-package com.example.medicalschedulingapp;
+package com.example.medicalschedulingapp.ui.appointments;
 import java.util.Date;
 public class Appointment {
     private String medCenterName;

@@ -14,7 +14,6 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.medicalschedulingapp.R;
-import com.example.medicalschedulingapp.ui.dashboard.DashboardFragment;
 
 public class NotificationsFragment extends Fragment {
 

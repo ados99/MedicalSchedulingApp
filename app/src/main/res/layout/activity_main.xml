@@ -24,35 +24,57 @@
         android:layout_height="match_parent"
         app:defaultNavHost="true"
         app:layout_constraintBottom_toTopOf="@id/nav_view"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/mobile_navigation" />
 
     <Button
         android:id="@+id/button_MentalH"
-        android:layout_width="152dp"
-        android:layout_height="97dp"
-        android:text="MENTAL HEALTH"
+        android:layout_width="150dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="232dp"
+        android:layout_marginLeft="232dp"
+
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginRight="25dp"
+        android:text="MENTAL HEALTH CLINICS"
         app:backgroundTint="#9D72E8"
-        app:layout_constraintBottom_toTopOf="@+id/nav_view"
-        app:layout_constraintEnd_toStartOf="@+id/nav_host_fragment"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/button_Covid"
-        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/button_Hospitals"
+        app:layout_constraintTop_toBottomOf="@id/textView_find_me" />
 
     <Button
-        android:id="@+id/button_Covid"
-        android:layout_width="152dp"
-        android:layout_height="97dp"
-        android:text="COVID-19"
-        app:layout_constraintBottom_toTopOf="@+id/nav_view"
-        app:layout_constraintEnd_toStartOf="@+id/button_MentalH"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/nav_host_fragment"
-        app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
+        android:id="@+id/button_Hospitals"
+        android:layout_width="150dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+
+        android:layout_marginTop="76dp"
+
+        android:text="HOSPITALS"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView_find_me" />
+
+    <Button
+        android:id="@+id/button_Urgent_Care"
+        android:layout_width="150dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginLeft="104dp"
+        android:text="URGENT CARES"
+        app:backgroundTint="#c41b81"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_Hospitals"
+        app:layout_constraintVertical_bias="0.236" />
 
     <TextView
         android:id="@+id/textView_Header"
@@ -60,7 +82,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-black"
         android:gravity="center_horizontal"
-        android:text="MED+ SCHEDULER"
+        android:text="@string/title"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="36sp"
@@ -69,28 +91,38 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
 
+    <TextView
+        android:id="@+id/textView_find_me"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="148dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center_horizontal"
+        android:text="Find me the nearest..."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="28sp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView_Header" />
+
     <ImageView
         android:id="@+id/image_Medical"
         android:layout_width="407dp"
-        android:layout_height="679dp"
+        android:layout_height="579dp"
         android:alpha=".1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nav_view"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/nav_view"
+
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.769"
         app:srcCompat="@drawable/caduceus" />
 
-    <Button
-        android:id="@+id/button_Map"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Map"
-        app:backgroundTint="#c70472"
-        app:layout_constraintBottom_toTopOf="@+id/nav_view"
-        app:layout_constraintEnd_toStartOf="@+id/image_Medical"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/image_Medical"
-        app:layout_constraintTop_toBottomOf="@+id/button_MentalH" />
+
 
     <Button
         android:id="@+id/edit_user_info"
@@ -100,7 +132,6 @@
         app:layout_constraintBottom_toTopOf="@+id/nav_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_Map"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,6 +17,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.example.medicalschedulingapp.ui.home.MainActivity;
+import com.example.medicalschedulingapp.user.RegisterActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginFragment extends Fragment implements View.OnClickListener{

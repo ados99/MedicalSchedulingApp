@@ -1,10 +1,12 @@
 package com.example.medicalschedulingapp;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -12,10 +14,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import com.example.medicalschedulingapp.ui.home.MainActivity;
+import com.example.medicalschedulingapp.user.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,6 +49,9 @@ public class EditUserFragment extends Fragment{
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle SavedInstanceState){
         View v;
         v = inflater.inflate(R.layout.fragment_edit_user, container, false);
+        ActionBar actionBar = ((AppCompatActivity)getActivity()).getSupportActionBar();
+        actionBar.setTitle("Edit User Information");
+        actionBar.setDisplayHomeAsUpEnabled(true);
         fNameText = v.findViewById(R.id.editFirstName);
         lNameText = v.findViewById(R.id.editLastName);
         emailText = v.findViewById(R.id.editEmail);
@@ -59,13 +69,15 @@ public class EditUserFragment extends Fragment{
         dbUsers.child(fUser.getUid()).child("firstName").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
-                if (!task.isSuccessful()) {
-                    Log.e("firebase", "Error getting data", task.getException());
-                    greeting.append(" User!");
-                }
-                else {
-                    greeting.append(" " + task.getResult().getValue().toString());
-                }
+//                if (!task.isSuccessful()) {
+//                    Log.e("firebase", "Error getting data", task.getException());
+//                    greeting.append(" User!");
+//                }
+//                else {
+//                    if(task!=null) {
+//                        greeting.append(" " + task.getResult().getValue().toString());
+//                    }
+//                }
             }
         }).toString();
 
@@ -124,4 +136,6 @@ public class EditUserFragment extends Fragment{
         });
         return v;
     }
+
+
 }

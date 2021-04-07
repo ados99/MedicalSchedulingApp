@@ -3,6 +3,7 @@ package com.example.medicalschedulingapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,5 +25,17 @@ import com.google.firebase.database.FirebaseDatabase;
 public class EditUserActivity extends SingleFragmentActivity{
     @Override
     protected Fragment createFragment(){return new EditUserFragment();}
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
 
 }

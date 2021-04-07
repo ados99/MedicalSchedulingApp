@@ -22,4 +22,5 @@
         <item>Female</item>
         <item>N/A</item>
     </string-array>
+    <string name="title"> <font color='@color/purple_500'>MED+</font> SCHEDULER</string>
 </resources>

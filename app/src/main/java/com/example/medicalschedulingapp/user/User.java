@@ -1,4 +1,6 @@
-package com.example.medicalschedulingapp;
+package com.example.medicalschedulingapp.user;
+import com.example.medicalschedulingapp.ui.appointments.Appointment;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 

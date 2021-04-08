@@ -1,35 +1,22 @@
 package com.example.medicalschedulingapp.ui.home;
 
-import android.content.ClipData.Item;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.example.medicalschedulingapp.EditUserActivity;
 import com.example.medicalschedulingapp.MapActivity;
 import com.example.medicalschedulingapp.R;
+import com.example.medicalschedulingapp.user.SettingsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.mapbox.geocoder.MapboxGeocoder;
-import com.mapbox.geocoder.service.models.GeocoderFeature;
-import com.mapbox.geocoder.service.models.GeocoderResponse;
-import com.mapbox.geojson.Point;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-
-import java.util.List;
-
-import retrofit.Callback;
-import retrofit.Response;
-import retrofit.Retrofit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -39,10 +26,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         getSupportActionBar().hide();
         BottomNavigationView navView = findViewById(R.id.nav_view);
-        Button editUserInfo = (Button) findViewById(R.id.edit_user_info);
-        editUserInfo.setOnClickListener(new View.OnClickListener(){
+        Button settings = (Button) findViewById(R.id.settings);
+        settings.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v){openEditUser();}
+            public void onClick(View v){openSettings();}
         });
         Button urgentCares = (Button)findViewById(R.id.button_Urgent_Care);
         Button hospitals = (Button)findViewById(R.id.button_Hospitals);
@@ -90,10 +77,10 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openEditUser(){
+    /*public void openEditUser(){
         Intent intent = new Intent(this, EditUserActivity.class);
         startActivity(intent);
-    }
+    }*/
 
     public void openUrgentCares(){
         Intent intent = new Intent(this, MapActivity.class);
@@ -119,5 +106,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    public void openSettings(){
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
 }

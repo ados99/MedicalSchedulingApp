@@ -1,23 +1,10 @@
 package com.example.medicalschedulingapp.ui.home;
 
-import android.content.ClipData.Item;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-
-import com.example.medicalschedulingapp.EditUserActivity;
-import com.example.medicalschedulingapp.MapActivity;
-import com.example.medicalschedulingapp.R;
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.mapbox.geocoder.MapboxGeocoder;
-import com.mapbox.geocoder.service.models.GeocoderFeature;
-import com.mapbox.geocoder.service.models.GeocoderResponse;
-import com.mapbox.geojson.Point;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
@@ -25,11 +12,12 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import java.util.List;
-
-import retrofit.Callback;
-import retrofit.Response;
-import retrofit.Retrofit;
+import com.example.medicalschedulingapp.CalendarActivity;
+import com.example.medicalschedulingapp.EditUserActivity;
+import com.example.medicalschedulingapp.MapActivity;
+import com.example.medicalschedulingapp.R;
+import com.google.android.material.bottomnavigation.BottomNavigationItemView;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -47,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         Button urgentCares = (Button)findViewById(R.id.button_Urgent_Care);
         Button hospitals = (Button)findViewById(R.id.button_Hospitals);
         Button mentalHealth = (Button)findViewById(R.id.button_MentalH);
+        Button schuduleAppointment = (Button)findViewById(R.id.button_schedApp);
         urgentCares.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -65,7 +54,12 @@ public class MainActivity extends AppCompatActivity {
                 openMentalHealthClinics();
             }
         });
-
+        schuduleAppointment.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openSchuduleAppointment();
+            }
+        });
         BottomNavigationItemView map = findViewById(R.id.navigation_dashboard);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
@@ -82,8 +76,12 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+
+    private void openSchuduleAppointment() {
+        Intent intent = new Intent(this, CalendarActivity.class);
+        intent.putExtra("key", "Schedule Appointment");
+        startActivity(intent);
+    }
 
     public void openMap(){
         Intent intent = new Intent(this, MapActivity.class);

@@ -17,7 +17,6 @@
     <string name="fName">First Name</string>
     <string name="lName">Last Name</string>
     <string name="edit_user">Edit User Info</string>
-    <string name="settings">Settings</string>
     <string name="logout">Logout</string>
     <string-array name="sex_array">
         <item>Male</item>
@@ -25,4 +24,5 @@
         <item>N/A</item>
     </string-array>
     <string name="title"> <font color='@color/purple_500'>MED+</font> SCHEDULER</string>
+    <string name="title_activity_appointment_view">MainActivity</string>
 </resources>

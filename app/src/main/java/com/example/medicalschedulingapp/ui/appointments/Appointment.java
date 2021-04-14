@@ -1,67 +1,63 @@
 package com.example.medicalschedulingapp.ui.appointments;
 import java.util.Date;
 public class Appointment {
-    private String medCenterName;
-    private String streetName;
-    private String city;
-    private String state;
-    private int zip;
-    private Date aptTime;
+    private String location;
+    private String address;
+    private String date;
+    private String time;
+    private String doctor;
+    private String reason;
 
-    public Appointment( String medCenterName, String streetName, String city, String state, int zip, Date aptTime){
-        this.medCenterName = medCenterName;
-        this.streetName = streetName;
-        this.city = city;
-        this.state = state;
-        this.zip = zip;
-        this.aptTime = aptTime;
+    public Appointment()
+    {
+
     }
 
-    public String getMedCenterName() {
-        return medCenterName;
+    public String getLocation() {
+        return location;
     }
 
-    public void setMedCenterName(String medCenterName) {
-        this.medCenterName = medCenterName;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getStreetName() {
-        return streetName;
+    public String getAddress() {
+        return address;
     }
 
-    public void setStreetName(String streetName) {
-        this.streetName = streetName;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getCity() {
-        return city;
+    public String getDate() {
+        return date;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public String getState() {
-        return state;
+    public String getTime() {
+        return time;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public int getZip() {
-        return zip;
+    public String getDoctor() {
+        return doctor;
     }
 
-    public void setZip(int zip) {
-        this.zip = zip;
+    public void setDoctor(String doctor) {
+        this.doctor = doctor;
     }
 
-    public Date getAptTime() {
-        return aptTime;
+    public String getReason() {
+        return reason;
     }
 
-    public void setAptTime(Date aptTime) {
-        this.aptTime = aptTime;
+    public void setReason(String reason) {
+        this.reason = reason;
     }
 }

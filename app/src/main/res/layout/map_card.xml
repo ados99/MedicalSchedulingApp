@@ -40,7 +40,8 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/white"
             android:textColor="@color/purple_500"
-            android:text="Add Appointment">
+            android:text="Add Appointment"
+            android:id="@+id/add_from_map">
         </Button>
     </LinearLayout>
 

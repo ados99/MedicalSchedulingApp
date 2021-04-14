@@ -6,9 +6,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
+import com.example.medicalschedulingapp.AppointmentView;
+import com.example.medicalschedulingapp.EditUserActivity;
 import com.example.medicalschedulingapp.MapActivity;
 import com.example.medicalschedulingapp.R;
-import com.example.medicalschedulingapp.user.SettingsActivity;
+import com.example.medicalschedulingapp.SettingsActivity;
 import com.google.android.material.bottomnavigation.BottomNavigationItemView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -18,12 +20,6 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.medicalschedulingapp.CalendarActivity;
-import com.example.medicalschedulingapp.EditUserActivity;
-import com.example.medicalschedulingapp.MapActivity;
-import com.example.medicalschedulingapp.R;
-import com.google.android.material.bottomnavigation.BottomNavigationItemView;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -34,14 +30,15 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         BottomNavigationView navView = findViewById(R.id.nav_view);
         Button settings = (Button) findViewById(R.id.settings);
-        settings.setOnClickListener(new View.OnClickListener(){
+        settings.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v){openSettings();}
+            public void onClick(View v) {
+                openSettings();
+            }
         });
-        Button urgentCares = (Button)findViewById(R.id.button_Urgent_Care);
-        Button hospitals = (Button)findViewById(R.id.button_Hospitals);
-        Button mentalHealth = (Button)findViewById(R.id.button_MentalH);
-        Button schuduleAppointment = (Button)findViewById(R.id.button_schedApp);
+        Button urgentCares = (Button) findViewById(R.id.button_Urgent_Care);
+        Button hospitals = (Button) findViewById(R.id.button_Hospitals);
+        Button mentalHealth = (Button) findViewById(R.id.button_MentalH);
         urgentCares.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -60,13 +57,9 @@ public class MainActivity extends AppCompatActivity {
                 openMentalHealthClinics();
             }
         });
-        schuduleAppointment.setOnClickListener(new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openSchuduleAppointment();
-            }
-        });
+
         BottomNavigationItemView map = findViewById(R.id.navigation_dashboard);
+        BottomNavigationItemView appointments = findViewById(R.id.navigation_notifications);
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
                 R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
                 .build();
@@ -79,25 +72,29 @@ public class MainActivity extends AppCompatActivity {
                 openMap();
             }
         });
-
-
+        appointments.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openAppointments();
+            }
+        });
     }
-
-    private void openSchuduleAppointment() {
-        Intent intent = new Intent(this, CalendarActivity.class);
-        intent.putExtra("key", "Schedule Appointment");
-        startActivity(intent);
-    }
+        // Passing each menu ID as a set of Ids because each
+        // menu should be considered as top level destinations.
 
     public void openMap(){
         Intent intent = new Intent(this, MapActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("key", "");
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
-    /*public void openEditUser(){
-        Intent intent = new Intent(this, EditUserActivity.class);
+    public void openAppointments(){
+        Intent intent = new Intent(this, AppointmentView.class);
         startActivity(intent);
-    }*/
+    }
+
 
     public void openUrgentCares(){
         Intent intent = new Intent(this, MapActivity.class);
@@ -127,4 +124,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
+
+
 }

@@ -15,6 +15,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +41,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference dbUsers = db.getReference().child("users");
     private Spinner rSexSpinner;
+    private static final Pattern EMAIL_REGEX = Pattern.compile("^([\\p{L}-_\\.]+){1,64}@([\\p{L}-_\\.]+){2,255}.[a-z]{2,}$");
 
     @Override
     public void onAttach(@NonNull Context context){super.onAttach(context);}
@@ -75,6 +79,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
         String fName = rFName.getText().toString().trim();
         String lName = rLName.getText().toString().trim();
         String sex = rSexSpinner.getSelectedItem().toString().trim();
+        Matcher m = EMAIL_REGEX.matcher(username);
 
         if(TextUtils.isEmpty(username)){
             rUsernameText.setError("Need a username");
@@ -86,6 +91,10 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
         }
         if(TextUtils.isEmpty(password)){
             rPasswordText.setError("Need a password");
+            return;
+        }
+        if(!m.matches()){
+            rUsernameText.setError("Email is not valid!");
             return;
         }
         if(password.length() < 6){

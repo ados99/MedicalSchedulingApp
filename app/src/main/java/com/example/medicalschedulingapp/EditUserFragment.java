@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -16,6 +17,9 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.regex.Pattern;
+import java.util.regex.Matcher;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -39,7 +43,7 @@ import java.util.Calendar;
 
 public class EditUserFragment extends Fragment{
 
-
+    private static final Pattern EMAIL_REGEX = Pattern.compile("^([\\p{L}-_\\.]+){1,64}@([\\p{L}-_\\.]+){2,255}.[a-z]{2,}$");
     private EditText fNameText, lNameText, emailText, passwordText;
     private Spinner editSex;
     private DatePicker dob;
@@ -95,6 +99,28 @@ public class EditUserFragment extends Fragment{
                 String email = emailText.getText().toString().trim();
                 String sex = editSex.getSelectedItem().toString().trim();
                 String password = passwordText.getText().toString().trim();
+                Matcher m = EMAIL_REGEX.matcher(email);
+
+                if(TextUtils.isEmpty(password)){
+                    passwordText.setError("Need a password");
+                    return;
+                }
+                if(!m.matches()){
+                    emailText.setError("Email is not valid!");
+                    return;
+                }
+                if(password.length() < 6){
+                    passwordText.setError("Password is too short!");
+                    return;
+                }
+                if(TextUtils.isEmpty(fName)){
+                    fNameText.setError("First Name cannot be empty!");
+                    return;
+                }
+                if(TextUtils.isEmpty(lName)) {
+                    lNameText.setError("Last Name cannot be empty!");
+                    return;
+                }
 
                 int   day  = dob.getDayOfMonth();
                 int   month= dob.getMonth();

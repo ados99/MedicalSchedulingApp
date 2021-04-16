@@ -43,7 +43,7 @@ import java.util.Calendar;
 
 public class EditUserFragment extends Fragment{
 
-    private static final Pattern EMAIL_REGEX = Pattern.compile("^([\\p{L}-_\\.]+){1,64}@([\\p{L}-_\\.]+){2,255}.[a-z]{2,}$");
+    private static final Pattern EMAIL_REGEX = Pattern.compile("^[\\w\\p{Punct}]{1,64}@[a-z0-9_-]+.[a-z]{2,}$");
     private EditText fNameText, lNameText, emailText, passwordText;
     private Spinner editSex;
     private DatePicker dob;

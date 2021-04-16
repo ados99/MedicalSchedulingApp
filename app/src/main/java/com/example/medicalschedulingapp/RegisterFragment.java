@@ -41,7 +41,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
     private FirebaseDatabase db = FirebaseDatabase.getInstance();
     private DatabaseReference dbUsers = db.getReference().child("users");
     private Spinner rSexSpinner;
-    private static final Pattern EMAIL_REGEX = Pattern.compile("^([\\p{L}-_\\.]+){1,64}@([\\p{L}-_\\.]+){2,255}.[a-z]{2,}$");
+    private static final Pattern EMAIL_REGEX = Pattern.compile("^[\\w\\p{Punct}]{1,64}@[a-z0-9_-]+.[a-z]{2,}$");
 
     @Override
     public void onAttach(@NonNull Context context){super.onAttach(context);}

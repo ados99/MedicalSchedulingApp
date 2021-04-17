@@ -16,7 +16,9 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.SoundEffectConstants;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -163,6 +165,7 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
         }
     }
 
+
     private List<Location> createLocations(List<GeocoderFeature> gc) {
         ArrayList<Location> locationList = new ArrayList<>();
         for (int x = 0; x < 5; x++) {
@@ -194,6 +197,14 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
         recyclerView.setAdapter(locationAdapter);
         SnapHelper snapHelper = new LinearSnapHelper();
         snapHelper.attachToRecyclerView(recyclerView);
+    }
+
+    public static void newAppointment(Context cxt, String name){
+        Intent intent = new Intent(cxt, NewAppointmentActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("key", name);
+        intent.putExtras(bundle);
+        cxt.startActivity(intent);
     }
 
 
@@ -285,6 +296,7 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
 
             private List<Location> locationList;
             private MapboxMap map;
+            private static Context mContext;
 
             public LocationRecyclerViewAdapter(List<Location> locationList, MapboxMap mapBoxMap) {
                 this.locationList = locationList;
@@ -326,6 +338,8 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
                 TextView address;
                 CardView singleCard;
                 ItemClickListener clickListener;
+                Button add;
+
 
                 MyViewHolder(View view) {
                     super(view);
@@ -333,16 +347,26 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
                     address = view.findViewById(R.id.address_tv);
                     singleCard = view.findViewById(R.id.single_location_cardview);
                     singleCard.setOnClickListener(this);
+                    add = view.findViewById(R.id.add_from_map);
+                    add.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            newAppointment(view.getContext(),name.toString());
+                        }
+                    });
                 }
 
                 public void setClickListener(ItemClickListener itemClickListener) {
                     this.clickListener = itemClickListener;
                 }
 
+
                 @Override
                 public void onClick(View view) {
                     clickListener.onClick(view, getLayoutPosition());
                 }
+
+
 
 
             }
@@ -352,8 +376,6 @@ public class MapActivity extends AppCompatActivity implements PermissionsListene
             void onClick(View view, int position);
         }
     }
-
-
 
 
 

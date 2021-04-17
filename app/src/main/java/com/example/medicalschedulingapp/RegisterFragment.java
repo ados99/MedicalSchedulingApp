@@ -42,6 +42,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
     private DatabaseReference dbUsers = db.getReference().child("users");
     private Spinner rSexSpinner;
     private static final Pattern EMAIL_REGEX = Pattern.compile("^[\\w\\p{Punct}]{1,64}@[a-z0-9_-]+.[a-z]{2,}$");
+    private static final Pattern PASS_REGEX = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
 
     @Override
     public void onAttach(@NonNull Context context){super.onAttach(context);}
@@ -80,6 +81,7 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
         String lName = rLName.getText().toString().trim();
         String sex = rSexSpinner.getSelectedItem().toString().trim();
         Matcher m = EMAIL_REGEX.matcher(username);
+        Matcher p = PASS_REGEX.matcher(password);
 
         if(TextUtils.isEmpty(username)){
             rUsernameText.setError("Need a username");
@@ -89,16 +91,12 @@ public class RegisterFragment extends Fragment implements View.OnClickListener{
             rUsernameText.setError("Need a date of birth");
             return;
         }
-        if(TextUtils.isEmpty(password)){
-            rPasswordText.setError("Need a password");
-            return;
-        }
         if(!m.matches()){
             rUsernameText.setError("Email is not valid!");
             return;
         }
-        if(password.length() < 6){
-            rPasswordText.setError("Password is too short!");
+        if(!p.matches()){
+            rPasswordText.setError("Password needs to have at least 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 of @,$,!,%,*,?,&");
             return;
         }
         if(TextUtils.isEmpty(fName)){

@@ -43,6 +43,7 @@ import java.util.Calendar;
 
 public class EditUserFragment extends Fragment{
 
+    private static final Pattern PASS_REGEX = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
     private static final Pattern EMAIL_REGEX = Pattern.compile("^[\\w\\p{Punct}]{1,64}@[a-z0-9_-]+.[a-z]{2,}$");
     private EditText fNameText, lNameText, emailText, passwordText;
     private Spinner editSex;
@@ -100,6 +101,7 @@ public class EditUserFragment extends Fragment{
                 String sex = editSex.getSelectedItem().toString().trim();
                 String password = passwordText.getText().toString().trim();
                 Matcher m = EMAIL_REGEX.matcher(email);
+                Matcher p = PASS_REGEX.matcher(password);
 
                 if(TextUtils.isEmpty(password)){
                     passwordText.setError("Need a password");
@@ -109,8 +111,8 @@ public class EditUserFragment extends Fragment{
                     emailText.setError("Email is not valid!");
                     return;
                 }
-                if(password.length() < 6){
-                    passwordText.setError("Password is too short!");
+                if(!p.matches()){
+                    passwordText.setError("Password needs to have at least 8 characters, 1 uppercase, 1 lowercase, 1 number, and 1 of @,$,!,%,*,?,&");
                     return;
                 }
                 if(TextUtils.isEmpty(fName)){
